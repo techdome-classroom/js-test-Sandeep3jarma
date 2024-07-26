@@ -1,14 +1,8 @@
-const decodeTheRing = function (s, p) {
+// program2.js
+function decodeTheRing(string, pattern) {
+  // Use regex to create a regex pattern from the given pattern
+  const regex = new RegExp('^' + pattern.split('*').map(part => part.replace(/([.+^$[\](){}\\])/g, '\\$1')).join('.*') + '$');
+  return regex.test(string);
+}
 
-    // write your code here
-    function decodeTheRing(str, pattern) {
-      const regex = new RegExp('^' + pattern.replace(/\*/g, '.*').replace(/\?/g, '.') + '$');
-      return regex.test(str);
-  }
-  
-  
-
-  };
-  
-  module.exports = decodeTheRing;
-
+module.exports = decodeTheRing;
